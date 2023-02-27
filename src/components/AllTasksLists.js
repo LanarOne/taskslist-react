@@ -25,8 +25,7 @@ const AllTasksLists = () => {
                             return <article  className='listcard'>
                                       <ul>
                                         <li key={taskslist.id}>
-                                                    <h3>{taskslist.title}</h3>
-                                                    <p>{taskslist.description}</p>
+                                                    <h3>{taskslist.title} :</h3>
                                                     <ul>
                                                         {taskslist.Tasks.map((task) => {
                                                             return <li key={task.id}>
@@ -44,9 +43,6 @@ const AllTasksLists = () => {
                         })}
 
                 </section>
-                <NavLink to={'/addtaskslists'}>
-                    New List
-                </NavLink>
             </main>
         </div>
     );

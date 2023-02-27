@@ -26,6 +26,9 @@ h2{
   margin: 0;
   text-align: center;
 }
+header a {
+  text-decoration: none;
+}
 ul{
   margin: 0;
   padding: 0;
@@ -123,5 +126,39 @@ nav a:hover{
   padding: 1rem;
 }
 .addTask input{
+  margin: 1rem;
+}
+.addList {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./media/notepadbg2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: .5rem;
+}
+.addList div {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+.active {
+  border-bottom: 1px solid midnightblue;
+}
+.udtask {
+  background-image: url('./media/notepadbg2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.udtask form{
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin: 1rem auto;
+}
+.udtask input {
   margin: 1rem;
 }

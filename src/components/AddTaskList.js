@@ -23,7 +23,7 @@ const AddTaskList = () => {
     return (
         <div>
             <Header/>
-            <section>
+            <section className='addList'>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="title">Title of the new list</label>
@@ -46,7 +46,9 @@ const AddTaskList = () => {
                         >
                         </textarea>
                     </div>
-                    <input type="submit" value="submit"/>
+                    <div>
+                        <input type="submit" value="submit"/>
+                    </div>
                 </form>
             </section>
         </div>

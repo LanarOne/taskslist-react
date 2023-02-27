@@ -8,6 +8,8 @@ import AllTasksLists from "./components/AllTasksLists";
 import TaskListDetails from "./components/TaskListDetails";
 import AddTaskList from "./components/AddTaskList";
 import Header from "./components/Header";
+import Login from "./components/Login";
+import UpdateTask from "./components/UpdateTask";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +20,8 @@ root.render(
             <Route path='/taskslists' element=<AllTasksLists/>/>
             <Route path='/taskslists/:id' element=<TaskListDetails/>/>
             <Route path='/addtaskslists' element=<AddTaskList/>/>
+            <Route path='/login' element=<Login/>/>
+            <Route path='/task/:taskId/update' element=<UpdateTask/>/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>
