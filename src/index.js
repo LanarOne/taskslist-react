@@ -10,6 +10,8 @@ import AddTaskList from "./components/AddTaskList";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import UpdateTask from "./components/UpdateTask";
+import UpdateTasksList from "./components/UpdateTasksList";
+import AddUser from "./components/AddUser";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +24,8 @@ root.render(
             <Route path='/addtaskslists' element=<AddTaskList/>/>
             <Route path='/login' element=<Login/>/>
             <Route path='/task/:taskId/update' element=<UpdateTask/>/>
+            <Route path='/taskslists/:taskslistId/update' element=<UpdateTasksList/>/>
+            <Route path='/register' element=<AddUser/>/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

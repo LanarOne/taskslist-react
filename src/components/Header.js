@@ -16,6 +16,9 @@ const Header = () => {
             </div>
             <nav>
                 <ul>
+                    <li>
+                        <NavLink to={'/register'}>S'inscrire</NavLink>
+                    </li>
                     <li className={location.pathname === '/taskslists' ? 'active' : ''}>
                         <NavLink to={'/taskslists'}>Toutes mes listes</NavLink>
                     </li>

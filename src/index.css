@@ -36,6 +36,9 @@ ul{
 li{
   list-style: none;
 }
+button {
+  margin: .2rem;
+}
 
 header{
   background-color: mediumaquamarine;
@@ -106,10 +109,12 @@ nav a:hover{
   width: 100%;
 }
 .deleteBtn{
-  background-color: #ff3333;
   width: 1.5rem;
   border: 1px solid crimson;
   border-radius: .2rem;
+}
+.deleteBtn i {
+  color: #ff3333;
 }
 .addTask{
   background-image: url("./media/notepadbg2.png");
@@ -161,4 +166,12 @@ nav a:hover{
 }
 .udtask input {
   margin: 1rem;
+}
+.redirectBtn {
+  width: 1.5rem;
+  border: 1px solid green;
+  border-radius: .2rem;
+}
+.redirectBtn i{
+  color: green;
 }

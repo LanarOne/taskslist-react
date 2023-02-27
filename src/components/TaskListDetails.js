@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Header from "./Header";
 
 const TaskListDetails = () => {
@@ -64,16 +64,25 @@ const TaskListDetails = () => {
         const data = await response.json();
         setTasklistUpdated(!tasklistUpdated);
     }
+    async function redirection(taskId) {
+        window.location.href = `/task/${taskId}/update`
+    }
 
     if(!taskslist){
         return <div>chargement...</div>
     }
+
     return (
         <div>
             <Header/>
             <section className='mainCard'>
                 <div className="cardHdr">
-                    <h2>{taskslist.title} <button onClick={handleDelete} className='deleteBtn'><i className="fa-solid fa-trash-can"></i></button></h2>
+                    <h2>{taskslist.title}
+                        <button onClick={handleDelete} className='deleteBtn'>
+                            <i className="fa-solid fa-trash-can"></i>
+                        </button>
+                        <button><i className="fa-solid fa-pen"></i></button>
+                    </h2>
                     <p>{taskslist.description}</p>
                 </div>
                         <ul>
@@ -81,9 +90,12 @@ const TaskListDetails = () => {
                                 return  <li key={task.id}>
                                             <h3>{task.name}</h3>
                                             <p>{task.description}</p>
+                                            <input type='checkbox' id={`task-${task.id}`} checked={task.active} onChange={() => handleToggleStatus(task.id)} />
+                                        <div>
                                             <button className='deleteBtn' onClick={()=>{handleDeleteTask(task.id)}}><i
                                                 className="fa-solid fa-trash-can"></i></button>
-                                            <input type='checkbox' id={`task-${task.id}`} checked={task.active} onChange={() => handleToggleStatus(task.id)} />
+                                            <button className='redirectBtn' onClick={()=>{redirection(task.id)}}><i className="fa-solid fa-pen"></i></button>
+                                        </div>
                                         </li>
                             })}
                         </ul>
