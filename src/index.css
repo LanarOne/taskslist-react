@@ -1,13 +1,127 @@
+*{
+  box-sizing: border-box;
+}
+.root{
+  font-size: 62.5%;
+}
+
 body {
+  font-size: 1.4rem;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Tilt Neon, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: midnightblue;
+  background-color: #ffcc99;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2{
+  font-family: Hachi Maru Pop, "Helvetica Neue";
+  margin: 0;
+  text-align: center;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+
+header{
+  background-color: mediumaquamarine;
+}
+.title{
+  display: flex;
+  justify-content: center;
+}
+header img{
+  margin: 1rem .5rem;
+  max-width: 2rem;
+}
+nav ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav li{
+  margin: .5rem;
+}
+nav a{
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: .5s;
+  color: midnightblue;
+}
+nav a:hover{
+  border-bottom: 1px solid midnightblue;
+}
+.mylists{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.listcard{
+  width: 30%;
+  background-image: url('./media/notepadbg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 1rem auto;
+  border: 1px solid midnightblue;
+  border-radius: 2rem 0 0 2rem;
+  text-align: center;
+  object-fit: cover;
+  overflow: auto;
+  height: 20rem;
+}
+.mainCard{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./media/notepadbg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: auto;
+}
+.mainCard li{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cardHdr{
+  width: 100%;
+}
+.deleteBtn{
+  background-color: #ff3333;
+  width: 1.5rem;
+  border: 1px solid crimson;
+  border-radius: .2rem;
+}
+.addTask{
+  background-image: url("./media/notepadbg2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.addTask form{
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.addTask input{
+  margin: 1rem;
 }

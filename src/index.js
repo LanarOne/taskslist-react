@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./components/Home";
+import AllTasksLists from "./components/AllTasksLists";
+import TaskListDetails from "./components/TaskListDetails";
+import AddTaskList from "./components/AddTaskList";
+import Header from "./components/Header";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element=<Home/>/>
+            <Route path='/taskslists' element=<AllTasksLists/>/>
+            <Route path='/taskslists/:id' element=<TaskListDetails/>/>
+            <Route path='/addtaskslists' element=<AddTaskList/>/>
+        </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
