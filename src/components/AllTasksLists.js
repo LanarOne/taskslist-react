@@ -41,7 +41,6 @@ const AllTasksLists = () => {
                                       </ul>
                                     </article>
                         })}
-
                 </section>
             </main>
         </div>

@@ -5,6 +5,7 @@ const AddUser = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirm, setConfirm] = useState('')
+    const [image, setImage] = useState(null)
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -24,6 +25,10 @@ const AddUser = () => {
         }
     }
 
+    async function handleImageChange () {
+        console.log('toto')
+    }
+
     return (
         <div>
             <Header/>
@@ -41,6 +46,10 @@ const AddUser = () => {
                     <div>
                         <label htmlFor="confirm">veuillez confirmer votre mot de passe</label>
                         <input type="password" name="confirm" id="confirm" value={confirm} onChange={(e)=>{setConfirm(e.target.value)}} placeholder='confirmez'/>
+                    </div>
+                    <div>
+                        <label htmlFor="">Votre PP</label>
+                        <input type="file" name="image" id="image" accept='image/*' onChange={handleImageChange}/>
                     </div>
                     <input type="submit" value="Envoyer"/>
                 </form>
