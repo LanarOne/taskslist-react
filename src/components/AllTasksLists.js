@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import Header from "./Header";
+import Cookies from "js-cookie";
 const AllTasksLists = () => {
     const [taskslists, setTaskslists] = useState([]);
+    const token = Cookies.get('token')
     useEffect(() => {
         async function fetchTasksLists() {
-            const response = await fetch('http://localhost:3003/taskslists');
+            const response = await fetch('http://localhost:3003/taskslists',{
+                headers: {
+                    'Authorization' : `Bearer ${token}`
+                }
+            });
             const data = await response.json();
             setTaskslists(data);
         }

@@ -13,20 +13,22 @@ import UpdateTask from "./components/UpdateTask";
 import UpdateTasksList from "./components/UpdateTasksList";
 import AddUser from "./components/AddUser";
 import ShowUsers from "./components/ShowUsers";
+import Test from "./components/Test";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
         <Routes>
-            <Route path='/' element=<Home/>/>
-            <Route path='/taskslists' element=<AllTasksLists/>/>
-            <Route path='/taskslists/:id' element=<TaskListDetails/>/>
-            <Route path='/addtaskslists' element=<AddTaskList/>/>
-            <Route path='/login' element=<Login/>/>
-            <Route path='/task/:taskId/update' element=<UpdateTask/>/>
-            <Route path='/taskslists/:taskslistId/update' element=<UpdateTasksList/>/>
-            <Route path='/register' element=<AddUser/>/>
-            <Route path='/users' element=<ShowUsers/>/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/taskslists' element={<AllTasksLists/>}/>
+            <Route path='/taskslists/:id' element={<TaskListDetails/>}/>
+            <Route path='/addtaskslists' element={<AddTaskList/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/task/:taskId/update' element={<UpdateTask/>}/>
+            <Route path='/taskslists/:taskslistId/update' element={<UpdateTasksList/>}/>
+            <Route path='/register' element={<AddUser/>}/>
+            <Route path='/users' element={<ShowUsers/>}/>
+            <Route path='/test' element={<Test/>}/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

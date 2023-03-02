@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import Header from "./Header";
+import Cookies from "js-cookie";
 
 const ShowUsers = () => {
     const [users, setUsers] = useState([]);
+    const token = Cookies.get('token')
     useEffect(() => {
         async function fetchUsers() {
-            const response = await fetch('http://localhost:3003/users');
+            const response = await fetch('http://localhost:3003/users', {
+                headers: {
+                    'Authorization' : `Bearer ${token}`
+                }
+            });
             const data = await response.json();
             setUsers(data);
         };

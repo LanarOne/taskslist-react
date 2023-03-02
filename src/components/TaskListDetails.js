@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Header from "./Header";
+import Cookies from "js-cookie";
 
 const TaskListDetails = () => {
     const [taskslist, setTaskslist] = useState(null);
@@ -10,10 +11,15 @@ const TaskListDetails = () => {
     const [description, setDescription] = useState('');
     const [tasklistUpdated, setTasklistUpdated] = useState('');
     const [checked, setChecked] = useState({});
+    const token = Cookies.get('token');
 
     useEffect(() => {
         async function fetchTasksList() {
-            const response = await fetch(`http://localhost:3003/taskslists/${id}`);
+            const response = await fetch(`http://localhost:3003/taskslists/${id}`, {
+                headers: {
+                    'Authorization' : `Bearer ${token}`
+                }
+            });
             const data = await response.json();
             setTaskslist(data);
             const checkedState = {};
@@ -26,7 +32,10 @@ const TaskListDetails = () => {
     },[id, tasklistUpdated]);
     async function handleDelete (){
         const response = await fetch(`http://localhost:3003/taskslists/${id}`,{
-            method : 'DELETE'
+            method : 'DELETE',
+            headers: {
+                'Authorization' : `Bearer ${token}`
+            }
         });
         const data = await response.json();
         window.location.href = '/taskslists'
@@ -36,7 +45,10 @@ const TaskListDetails = () => {
         try {
             const response = await fetch(`http://localhost:3003/taskslists/${id}/tasks`, {
                 method : 'POST',
-                headers : {'Content-Type' : 'application/json'},
+                headers : {
+                    'Content-Type' : 'application/json',
+                    'Authorization' : `Bearer ${token}`
+                },
                 body : JSON.stringify({name, description, amount})
             })
             const data = await response.json();
@@ -51,7 +63,10 @@ const TaskListDetails = () => {
 
     async function handleDeleteTask(taskId){
         const response = await fetch(`http://localhost:3003/tasks/${taskId}`, {
-            method : 'DELETE'
+            method : 'DELETE',
+            headers: {
+                'Authorization' : `Bearer ${token}`
+            }
         })
         const data = await response.json();
         console.log(data);
@@ -59,7 +74,10 @@ const TaskListDetails = () => {
     }
     async function handleToggleStatus(taskId) {
         const response = await fetch(`http://localhost:3003/tasks/${taskId}/active`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                'Authorization' : `Bearer ${token}`
+            }
         });
         const data = await response.json();
         setTasklistUpdated(!tasklistUpdated);

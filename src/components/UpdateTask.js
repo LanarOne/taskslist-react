@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Header from "./Header";
+import Cookies from "js-cookie";
 const UpdateTask = () => {
     const [task, setTask] = useState({
         name : '',
@@ -9,10 +10,15 @@ const UpdateTask = () => {
     });
     const {taskId} = useParams();
     const [loading, setLoading] = useState(true);
+    const token = Cookies.get('token')
     useEffect( () => {
         const fetchTask = async () => {
             try {
-                const response = await fetch(`http://localhost:3003/tasks/${taskId}`);
+                const response = await fetch(`http://localhost:3003/tasks/${taskId}`, {
+                    headers: {
+                        'Authorization' : `Bearer ${token}`
+                    }
+                });
                 const data = await response.json();
                 setTask(data.data);
                 setLoading(false)

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Header from "./Header";
+import Cookies from "js-cookie";
 
 const UpdateTasksList = () => {
     const [taskslist, setTaskslist] = useState({
@@ -9,6 +10,7 @@ const UpdateTasksList = () => {
     })
     const {taskslistId} = useParams();
     const [loading, setLoading] = useState(true);
+    const token = Cookies.get('token')
     useEffect(() => {
         const fetchTaskslist = async () => {
             try {

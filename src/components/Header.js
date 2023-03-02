@@ -23,7 +23,7 @@ const Header = () => {
                         <NavLink to={'/taskslists'}>Toutes mes listes</NavLink>
                     </li>
                     <li className={location.pathname === '/login' ? 'active' : ''}>
-                        <NavLink to={'/login'}>Inscription</NavLink>
+                        <NavLink to={'/login'}>Connection</NavLink>
                     </li>
                     <li className={location.pathname === '/addtaskslists' ? 'active' : ''}>
                         <NavLink to={'/addtaskslists'}>Nouvelle liste</NavLink>

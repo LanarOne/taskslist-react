@@ -1,21 +1,24 @@
 import React, {useState} from 'react';
 import Header from "./Header";
+import Cookies from "js-cookie";
 
 const AddTaskList = () => {
     const [title, setTitle] = useState('');
     const [description, setDesc] = useState('');
+    const token = Cookies.get('token');
+
     async function handleSubmit(e) {
     e.preventDefault();
     const response = await fetch('http://localhost:3003/taskslists',{
         method : 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
         },
         body: JSON.stringify({title, description})
     });
     if(response.ok){
         const data = await response.json();
-        window.location.href = '/taskslists'
     }else{
         console.error('une erreur s\'est glissée');
     }
